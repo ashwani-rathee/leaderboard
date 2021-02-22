@@ -213,6 +213,13 @@ class _HomeState extends State<Home> {
   }
 
   Widget _controlboard(BuildContext context, int index) {
+    List _playername = [
+      "Player-Sangrin",
+      "Player-Amber",
+      "Player-Kaeya",
+      "Player-Lisa",
+      "Player-Jean"
+    ];
     return InkWell(
       child: Card(
         child: Center(
@@ -222,7 +229,7 @@ class _HomeState extends State<Home> {
               width: 200,
               padding: EdgeInsets.all(20),
               child: Text(
-                "${_data.getName(index)}",
+                "${_playername[index]}",
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Colors.black,
@@ -234,7 +241,6 @@ class _HomeState extends State<Home> {
               width: 100,
               child: new NumberInputWithIncrementDecrement(
                 controller: new TextEditingController(),
-                initialValue: _data.getScore(index),
                 min: 1,
                 max: 20,
                 onIncrement: (value) {
@@ -246,7 +252,6 @@ class _HomeState extends State<Home> {
                 onDecrement: (value) {
                   _data.decrement(index, value);
                   _data.leaderupdate();
-
                   setState(() {});
                 },
               ),
@@ -257,3 +262,4 @@ class _HomeState extends State<Home> {
     );
   }
 }
+
